@@ -70,21 +70,19 @@ exports.findAndInsert = function(collectionName, query) {
                             callback(err, item, remoteDbConnection);
                         });
                     } else {
-                        callback(err, "completed", remoteDbConnection);
+                        callback(err, "completed");
                     }
                 });
             }
 
-        ], function (err, item, remoteDbConnection) {
+        ], function (err, item) {
 
             /**
              * Once all documents have been transferred
-             * 1. promise is fulfilled and message is passed
-             * 2. remote connection is closed
+             * promise is fulfilled and message is passed
              */
             if (item === "completed") {
                 fulfill("job " + item);
-                remoteDbConnection.close();
 
                 /**
                  * As operation continues show successfully inserted
@@ -92,6 +90,8 @@ exports.findAndInsert = function(collectionName, query) {
                  */
             } else {
                 if (err) console.log(err) && reject(err);
+
+                // this can be pretty verbose so comment out if needed
                 console.log({"inserted": item});
             }
 
