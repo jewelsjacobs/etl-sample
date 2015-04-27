@@ -65,7 +65,7 @@ exports.findAndInsert = function(collectionName, query) {
                  * remote collection
                  */
                 localDbConnection.collection(collectionName, function (err, col) {
-                    if (!!col || col !== null) {
+                    if (!!col) {
                         col.insert(item, {safe: true}, function (err, r) {
                             callback(err, item, remoteDbConnection);
                         });
