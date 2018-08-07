@@ -16,7 +16,7 @@ Uses:
 - [async - nodeJS module for asynchronous control flow](https://github.com/caolan/async)
 - [babel - compiles ES6+ code into ES5 friendly code](http://babeljs.io/)
 
-###Install
+### Install
 After installing nodeJS (use link above):
 
 - Fork and Clone repo
@@ -27,7 +27,7 @@ $ cd etl-scripts
 $ npm install
 ```
 
-###Run
+### Run
 
 ```bash
 $ cd etl-scripts
